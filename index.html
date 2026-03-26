@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Expert Review Pal</title>
+    <link rel="icon" type="image/png" href="/MERP.png" />
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: Arial, sans-serif; background: #f4f2fb; color: #1a1a2e; transition: background 0.3s, color 0.3s; }
+      #root { display: flex; min-height: 100vh; transition: filter 0.3s; }
+
+      /* ── Dark theme ── */
+      html[data-theme="dark"] body { background: #1a1a2e; color: #e0daf5; }
+      html[data-theme="dark"] nav[aria-label="Main navigation"] { background: #12112a !important; }
+      html[data-theme="dark"] main { background: #1a1a2e; color: #e0daf5; }
+
+      /* Force ALL text in main content area to be light in dark mode */
+      html[data-theme="dark"] main p,
+      html[data-theme="dark"] main span,
+      html[data-theme="dark"] main div,
+      html[data-theme="dark"] main label,
+      html[data-theme="dark"] main li,
+      html[data-theme="dark"] main td,
+      html[data-theme="dark"] main th { color: #e0daf5 !important; }
+
+      /* Headings get accent colors */
+      html[data-theme="dark"] h1, html[data-theme="dark"] h2 { color: #b8a9f0 !important; }
+      html[data-theme="dark"] h3 { color: #c9a0e0 !important; }
+
+      /* Cards, articles and white backgrounds */
+      html[data-theme="dark"] article { background: #262340 !important; color: #e0daf5 !important; }
+      html[data-theme="dark"] [style*="background: rgb(255, 255, 255)"] { background: #262340 !important; }
+      html[data-theme="dark"] [style*="background: rgb(250, 249, 255)"],
+      html[data-theme="dark"] [style*="background: rgb(248, 246, 255)"],
+      html[data-theme="dark"] [style*="background: rgb(240, 236, 255)"],
+      html[data-theme="dark"] [style*="background: rgb(237, 232, 252)"],
+      html[data-theme="dark"] [style*="background: rgb(244, 242, 251)"] { background: #2a2650 !important; }
+
+      /* Inputs & form controls */
+      html[data-theme="dark"] input, html[data-theme="dark"] textarea, html[data-theme="dark"] select { background: #2a2650 !important; color: #e0daf5 !important; border-color: #444 !important; }
+      html[data-theme="dark"] summary { color: #e0daf5; }
+      html[data-theme="dark"] details { border-color: #444 !important; }
+      html[data-theme="dark"] code { background: #2a2650; color: #e0daf5; }
+
+      /* Buttons */
+      html[data-theme="dark"] button { color: #e0daf5 !important; }
+      html[data-theme="dark"] button[style*="background: rgb(58, 43, 149)"] { color: #fff !important; }
+      html[data-theme="dark"] button[style*="background: transparent"],
+      html[data-theme="dark"] button[style*="background:transparent"] { color: #e0daf5 !important; border-color: #7b6cc0 !important; }
+
+      /* Border overrides */
+      html[data-theme="dark"] [style*="border-color: rgb(221, 216, 245)"],
+      html[data-theme="dark"] [style*="border: 1px solid rgb(221, 216, 245)"],
+      html[data-theme="dark"] [style*="border: 2px solid rgb(221, 216, 245)"] { border-color: #444 !important; }
+
+      /* Step bar inactive items: light purple bg becomes dark */
+      html[data-theme="dark"] [style*="background: rgb(224, 218, 245)"] { background: #2a2650 !important; color: #b8a9f0 !important; }
+
+      /* Flag boxes keep warm tones in dark mode */
+      html[data-theme="dark"] [style*="background: rgb(255, 248, 225)"] { background: #3d3520 !important; }
+
+      /* Accessibility panel dark */
+      html[data-theme="dark"] { --a11y-panel-bg: #262340; --a11y-panel-text: #e0daf5; }
+
+      /* ── Dyslexic font inheritance ── when active on <html>, force all elements to inherit */
+      html[style*="OpenDyslexic"] * { font-family: inherit !important; }
+
+      /* ── Bionic reading ── global readability boost + bold first-half markers */
+      html.bionic-active [data-bionic] { font-weight: 700; }
+      html.bionic-active { word-spacing: 0.08em; letter-spacing: 0.01em; }
+      html.bionic-active strong, html.bionic-active b { font-weight: 800 !important; }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
